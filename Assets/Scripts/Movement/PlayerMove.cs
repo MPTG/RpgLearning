@@ -72,8 +72,20 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            // Character is not moving, use the "dontMove" animation
-            lastMoveAnimIndex = 0;
+            // Character is not moving if cases...
+            if(lastMoveAnimIndex == 3)
+            {
+                RotatePlayer();
+                lastMoveAnimIndex = 5;
+            }
+            else if(lastMoveAnimIndex == 4)
+            {
+                lastMoveAnimIndex = 0;
+            }
+            else if(lastMoveAnimIndex == 2)
+            {
+                lastMoveAnimIndex = 1;
+            }
         }
 
         // Update the animator with the new animation index
